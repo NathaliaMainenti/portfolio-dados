@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Nathalia - Analista de Dados</title>
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Importando uma fonte moderna -->
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Menu de Navegação -->
+    <nav>
+        <a onclick="showTab('sobre')">Quem eu sou</a>
+        <a onclick="showTab('projetos')">Projetos</a>
+    </nav>
+
+    <!-- ABA: QUEM EU SOU -->
+    <div id="sobre" class="container active">
+        <div class="about-card">
+            <!-- Espaço para sua foto de perfil -->
+            <img src="assets/avata_nathalia.jpeg" alt="Foto de Nathalia" class="profile-pic">
+            
+            <h1>Olá, eu sou a Nathalia</h1>
+            <p class="subtitle">Analista de Dados Júnior | Especialista em BI</p>
+            
+            <hr style="border: 0; border-top: 1px solid #334155; margin: 20px 0;">
+            
+            <p style="text-align: justify; color: #cbd5e1;">
+                Sou formada em Contabilidade com uma paixão por transformar 
+                números brutos em estratégias de negócio, atuando como <strong>Analista de Dados Júnior</strong>
+                e me aprofundando em Ciência de Dados. 
+                <br><br>
+                Utilizo <strong>Python, SQL</strong> e ferramentas de visualização para limpar, 
+                analisar e modelar dados, trazendo uma visão analítica contábil para a 
+                inteligência de negócios. Meu objetivo é automatizar processos e gerar 
+                insights que impactam diretamente a tomada de decisão.
+            </p>
+        </div>
+    </div>
+
+    <!-- ABA: PROJETOS -->
+<div id="projetos" class="container">
+    <h2 style="text-align: center; color: #3b82f6; margin-bottom: 30px;">Meus Projetos de Dados</h2>
+    
+    <!-- Grade de Projetos -->
+    <div class="project-grid">
+        <!-- Projeto Disney -->
+        <div class="project-card" onclick="openDisneyBot()">
+            <img src="assets/projeto-disney.jpeg" alt="Projeto Disney">
+            <div class="project-info">
+                <h3>Projeto Disney</h3>
+                <p>Análise de catálogo e assistente virtual via NLP.</p>
+            </div>
+        </div>
+
+        <!-- Projeto Titanic -->
+        <div class="project-card">
+            <img src="assets/projeto-titanic.jpeg" alt="Projeto Titanic">
+            <div class="project-info">
+                <h3>Projeto Titanic</h3>
+                <p>Modelo preditivo de sobrevivência usando Machine Learning.</p>
+            </div>
+        </div>
+
+        <!-- Projeto Retorno Ação -->
+        <div class="project-card">
+            <img src="assets/projeto-acao.jpeg" alt="Projeto Retorno Ação">
+            <div class="project-info">
+                <h3>Projeto Retorno Ação</h3>
+                <p>Análise financeira e cálculo de ROI de ativos contábeis.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Área do Chatbot (Inicia escondida) -->
+    <div id="disney-bot-area" style="display: none; margin-top: 40px;">
+        <button onclick="closeDisneyBot()" style="background: #ef4444; margin-bottom: 10px;">← Voltar aos Projetos</button>
+        <div class="chat-section">
+            <div class="chat-window" id="chat-window">
+                <div class="msg bot">Olá! Você ativou o Disney Bot. Qual filme vamos analisar?</div>
+            </div>
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Ex: Frozen...">
+                <button onclick="enviarMensagem()">Consultar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Link para o arquivo JavaScript externo -->
+    <script src="js/script.js"></script>
+</body>
+</html>
+
