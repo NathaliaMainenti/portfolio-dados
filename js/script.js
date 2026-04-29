@@ -1,4 +1,4 @@
-// 1. Função para trocar de abas (SPA - Single Page Application)
+// 1. Função para trocar de abas
 function showTab(tabId) {
     document.querySelectorAll('.container').forEach(tab => {
         tab.classList.remove('active');
@@ -7,7 +7,7 @@ function showTab(tabId) {
     window.scrollTo(0, 0);
 }
 
-// 2. Função para o Chatbot se comunicar com o Python no Render
+// 2. Função para o Chatbot se comunicar com o seu Python no Render
 async function enviarMensagem() {
     const input = document.getElementById('user-input');
     const chatWindow = document.getElementById('chat-window');
@@ -15,14 +15,13 @@ async function enviarMensagem() {
 
     if (!pergunta) return;
 
-    // Adiciona a mensagem do usuário na tela
+    // Exibe a pergunta do usuário
     chatWindow.innerHTML += `<div class="msg user">${pergunta}</div>`;
     input.value = "";
     input.focus();
     chatWindow.scrollTop = chatWindow.scrollHeight;
 
-    // --- CONEXÃO COM O BACKEND ---
-    // ADICIONADO O /pergunta NO FINAL DA SUA URL
+    // --- CONEXÃO COM O SEU BACKEND REAL ---
     const URL_DO_RENDER = "https://onrender.com";
 
     try {
@@ -32,21 +31,22 @@ async function enviarMensagem() {
         loadingMsg.id = "loading";
         chatWindow.appendChild(loadingMsg);
 
-        // Faz a requisição para a sua API Python
+        // Faz a requisição exata para o seu servidor
         const response = await fetch(`${URL_DO_RENDER}?texto=${encodeURIComponent(pergunta)}`);
         
-        if (!response.ok) throw new Error("Erro na resposta do servidor");
+        if (!response.ok) throw new Error("Erro na resposta");
 
         const data = await response.json();
 
-        document.getElementById("loading").remove();
+        if (document.getElementById("loading")) document.getElementById("loading").remove();
+        
+        // Exibe a resposta que o Python enviou
         chatWindow.innerHTML += `<div class="msg bot">${data.resposta}</div>`;
 
     } catch (error) {
         if (document.getElementById("loading")) document.getElementById("loading").remove();
-        chatWindow.innerHTML += `<div class="msg bot">⚠️ O servidor está acordando... Tente novamente em alguns segundos.</div>`;
+        chatWindow.innerHTML += `<div class="msg bot">⚠️ O servidor está acordando... Tente novamente em 30 segundos.</div>`;
     }
-
     chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
@@ -62,7 +62,6 @@ function closeDisneyBot() {
 }
 
 // 4. Atalho: Enviar mensagem ao apertar a tecla "Enter"
-// Usamos window.onload para garantir que o elemento existe antes de adicionar o evento
 window.onload = function() {
     const inputField = document.getElementById('user-input');
     if (inputField) {
@@ -73,4 +72,5 @@ window.onload = function() {
         });
     }
 };
+
 
