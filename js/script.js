@@ -33,7 +33,7 @@ async function enviarMensagem() {
 
     // --- CONEXÃO COM O BACKEND ---
     // Substitua o link abaixo pela URL que o Render te fornecer
-    const URL_DO_RENDER = "https://onrender.com";
+    const URL_DO_RENDER = "https://disney-bot-api.onrender.com";
 
     try {
         // Mostra uma mensagem de "digitando..."
