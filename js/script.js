@@ -22,7 +22,7 @@ async function enviarMensagem() {
     chatWindow.scrollTop = chatWindow.scrollHeight;
 
     // --- CONEXÃO COM O SEU BACKEND REAL ---
-    const URL_DO_RENDER = "https://onrender.com";
+    const URL_DO_RENDER = "https://disney-bot-api.onrender.com/pergunta"; // Substitua pela URL real do seu backend no Render
 
     try {
         const loadingMsg = document.createElement("div");
